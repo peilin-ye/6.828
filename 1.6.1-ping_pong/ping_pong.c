@@ -22,7 +22,7 @@ int main() {
         double rtt;
 	
         start = clock();
-        for (int i=0; i<100; i++) {
+        for (int i=0; i<100000; i++) {
             write(p1[1], ping, 1);
             read(p2[0], ping, 1);
         }
@@ -32,7 +32,7 @@ int main() {
         close(p1[1]);
         close(p2[0]);
 
-        rtt = (((double)(end - start)) / CLOCKS_PER_SEC) / 100;
+        rtt = (((double)(end - start)) / CLOCKS_PER_SEC) / 100000;
         printf("average RTT: %f ms\n", (rtt * 1000));
 	printf("exchanges per second: %ld times\n", (unsigned long)(1 / rtt));
     }
@@ -42,7 +42,7 @@ int main() {
         close(p2[0]);
         char pong[1];
 
-        for (int j=0; j<100; j++) {
+        for (int j=0; j<100000; j++) {
             read(p1[0], pong, 1);
             write(p2[1], pong, 1);
         }
