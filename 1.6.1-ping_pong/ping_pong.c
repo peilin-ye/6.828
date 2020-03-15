@@ -21,7 +21,6 @@ int main() {
         clock_t start, end;
         double rtt;
 	
-
         start = clock();
         for (int i=0; i<100; i++) {
             write(p1[1], ping, 1);
@@ -35,7 +34,7 @@ int main() {
 
         rtt = (((double)(end - start)) / CLOCKS_PER_SEC) / 100;
         printf("average RTT: %f ms\n", (rtt * 1000));
-	    printf("exchanges per second: %ld times\n", (unsigned long)(1 / rtt));
+	printf("exchanges per second: %ld times\n", (unsigned long)(1 / rtt));
     }
     else {
         //child
