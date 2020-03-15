@@ -19,7 +19,8 @@ int main() {
         char ping[1] = "B";
 
         clock_t start, end;
-        double time_elapsed;
+        double rtt;
+	
 
         start = clock();
         for (int i=0; i<100; i++) {
@@ -32,8 +33,9 @@ int main() {
         close(p1[1]);
         close(p2[0]);
 
-        time_elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
-        printf("average RTT: %f ms\n", (time_elapsed / 100) * 1000);
+        rtt = (((double)(end - start)) / CLOCKS_PER_SEC) / 100;
+        printf("average RTT: %f ms\n", (rtt * 1000));
+	    printf("exchanges per second: %ld times\n", (unsigned long)(1 / rtt));
     }
     else {
         //child
