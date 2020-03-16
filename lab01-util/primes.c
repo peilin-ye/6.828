@@ -1,7 +1,7 @@
 #include "kernel/types.h"
 #include "user/user.h"
 
-int
+void
 recur (int parent_fd[]) {
     int i, j;
     if (read(parent_fd[0], &i, sizeof(int)) == 0) {
