@@ -40,7 +40,7 @@ mon_showmappings(int argc, char **argv, struct Trapframe *tf)
 				}
 			}
 		} else {
-			cprintf("[UNMAPPED]");
+			cprintf("(UNMAPPED)");
 		}
 		
 		cprintf("\n");

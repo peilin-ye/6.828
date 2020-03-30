@@ -11,7 +11,7 @@ mon_chpgperm(int argc, char **argv, struct Trapframe *tf)
 	
 	if (argc < 3) {
 		cprintf("Usage: chpgperm ACTION VADDR [MODE]\n");
-		cprintf("ACTION is one of \"set\", \"clear\" and \"change\".\n");
+		cprintf("ACTION is one of \"set\", \"clear\" or \"change\".\n");
 		return 0;
 	}
 
