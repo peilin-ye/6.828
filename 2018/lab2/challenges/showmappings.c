@@ -1,4 +1,5 @@
 // Challenge 2.1
+// Display in a useful and easy-to-read format all of the physical page mappings (or lack thereof) that apply to a particular range of virtual/linear addresses in the currently active address space.
 
 int
 mon_showmappings(int argc, char **argv, struct Trapframe *tf)
