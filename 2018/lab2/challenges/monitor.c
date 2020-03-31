@@ -29,6 +29,7 @@ static struct Command commands[] = {
 	{ "showmappings", "Display all of the physical page mappings (or lack thereof) that apply to a particular range of virtual/linear addresses in the currently active address space.", mon_showmappings },
 	{ "chpgperm", "Explicitly set, clear, or change the permissions of any mapping in the current address space", mon_chpgperm},
 	{ "memdump", "Dump the contents of a range of memory given either a virtual or physical address range.", mon_memdump},
+	{ "showpg", "Display useful information of physical pages", mon_showpg},
 };
 
 /***** Implementations of basic kernel monitor commands *****/
@@ -273,7 +274,6 @@ mon_chpgperm(int argc, char **argv, struct Trapframe *tf)
 int
 mon_memdump(int argc, char **argv, struct Trapframe *tf)
 {
-	// memdump -p -v lo upper
 	if ((argc < 3) | (argc > 4)) {
 		cprintf("Usage: memdump OPTION LOWERBOUND [UPPERBOUND]\n");
 		return 0;
@@ -328,6 +328,26 @@ mon_memdump(int argc, char **argv, struct Trapframe *tf)
 		}		
 	}
 	return 0;
+}
+
+int
+mon_showpg(int argc, char **argv, struct Trapframe *tf)
+{
+	if (argc != 1) {
+		cprintf("Usage: showpg\n");
+		return 0;
+	}
+	
+	extern struct PageInfo *pages;
+	extern size_t npages;
+
+	for (int i = 0; i < npages; i++) {
+		if (pages[i].pp_ref) {
+			cprintf("[0x%08x] reference(s): %d\n", page2pa(pages+i), pages[i].pp_ref);
+		}
+	}
+
+	return 0;	
 }
 
 /***** Kernel monitor command interpreter *****/
