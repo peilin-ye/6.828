@@ -180,7 +180,6 @@ mem_init(void)
 	//    - pages itself -- kernel RW, user NONE
 	// My code goes here:
 	boot_map_region(kern_pgdir, UPAGES, npages*sizeof(struct PageInfo), PADDR(pages), PTE_U);
-	boot_map_region(kern_pgdir, (uintptr_t) pages, npages*sizeof(struct PageInfo), PADDR(pages), PTE_W);
 
 	//////////////////////////////////////////////////////////////////////
 	// Use the physical memory that 'bootstack' refers to as the kernel
@@ -414,21 +413,15 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
 {
 	// Filled this function in
 
-	// OK. Seems like I should not perform this check. :)
-	// if (pa + size > page2pa(pages + npages)) {
-	// 	panic("boot_map_region: out of range value for physical address!\n");
-	// }
-	// if (va + size > (~0)) {
-	// 	panic("boot_map_region: out of range value for virtual address!\n");
-	// }
-
 	pte_t *pte = NULL;
 
 	for (int i = 0; i < (size/PGSIZE); i++) {
 		pte = pgdir_walk(pgdir, (void *)va, 1);
+
 		if (!pte) {
 			panic("boot_map_region: pgdir_walk failed to create!\n");
 		}
+
 		*pte = pa | perm | PTE_P;
 		pgdir[PDX(va)] |= perm;
 		va += PGSIZE;
@@ -503,12 +496,16 @@ page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)
 {
 	// Filled this function in
 	pte_t *pte = pgdir_walk(pgdir, va, 0);
-	
-	// Do nothing to pte_store if there is no page mapped at va.
-	if ((!pte) | !(*pte & PTE_P)) {
+
+	// If PDE's P bit is unset
+	if (!pte) {
 		return NULL;
 	}
-	
+	// If PTE's P bit is unset
+	if (!(*pte & PTE_P)) {
+		return NULL;
+	}
+
 	if (pte_store) {
 		*pte_store = pte;
 	}
