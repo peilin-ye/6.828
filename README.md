@@ -6,6 +6,8 @@ My lab walkthroughs:
 
 [6.828/2018 Lab 2: Memory Management - Peilin Ye's blog](https://ypl.coffee/6-828-2018-lab2/)
 
+[6.828/2018 Lab 3: User Environments - Peilin Ye's blog](https://ypl.coffee/6-828-2018-lab3/)
+
 Homework walkthroughs:
 
 [6.828/2018 Homework: xv6 CPU alarm - Peilin Ye's blog](https://ypl.coffee/6-828-2018-hw-cpu-alarm/)
