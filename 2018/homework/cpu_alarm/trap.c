@@ -39,7 +39,8 @@ idtinit(void)
 void
 trap(struct trapframe *tf)
 {
-  if(tf->trapno == T_SYSCALL){
+  switch(tf->trapno){
+  case T_SYSCALL:
     if(myproc()->killed)
       exit();
     myproc()->tf = tf;
@@ -47,9 +48,6 @@ trap(struct trapframe *tf)
     if(myproc()->killed)
       exit();
     return;
-  }
-
-  switch(tf->trapno){
   case T_IRQ0 + IRQ_TIMER:
     if(cpuid() == 0){
       acquire(&tickslock);
@@ -57,7 +55,6 @@ trap(struct trapframe *tf)
       wakeup(&ticks);
       release(&tickslock);
     }
-
     // Homework: xv6 CPU alarm
     if (myproc() != 0 && (tf->cs & 3) == 3) {
       // If 1) there's a process running, and
@@ -77,7 +74,6 @@ trap(struct trapframe *tf)
         }
       }
     }
-
     lapiceoi();
     break;
   case T_IRQ0 + IRQ_IDE:
