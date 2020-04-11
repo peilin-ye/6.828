@@ -14,4 +14,6 @@ Homework walkthroughs:
 
 [6.828/2018 Homework: Threads and Locking - Peilin Ye's blog](https://ypl.coffee/6-828-2018-hw-threads-and-locking/)
 
+[6.828/2018 Homework: User-level Threads - Peilin Ye's blog](https://ypl.coffee/6-828-2018-hw-user-level-threads/)
+
 Note: Future posts/walkthroughs and solutions of labs, exercises, homeworks will all base on the [Fall 2018 version](https://pdos.csail.mit.edu/6.828/2018/schedule.html).
