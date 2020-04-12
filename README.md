@@ -16,4 +16,6 @@ Homework walkthroughs:
 
 [6.828/2018 Homework: User-level Threads - Peilin Ye's blog](https://ypl.coffee/6-828-2018-hw-user-level-threads/)
 
+[6.828/2018 Homework: Barriers - Peilin Ye's blog](https://ypl.coffee/6-828-2018-homework-barriers/)
+
 Note: Future posts/walkthroughs and solutions of labs, exercises, homeworks will all base on the [Fall 2018 version](https://pdos.csail.mit.edu/6.828/2018/schedule.html).
