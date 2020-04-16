@@ -8,6 +8,8 @@ My lab walkthroughs:
 
 [6.828/2018 Lab 3: User Environments - Peilin Ye's blog](https://ypl.coffee/6-828-2018-lab3/)
 
+[6.828/2018 Lab 4: Preemptive Multitasking - Peilin Ye's blog](https://ypl.coffee/6-828-2018-lab4/)
+
 Homework walkthroughs:
 
 [6.828/2018 Homework: xv6 CPU alarm - Peilin Ye's blog](https://ypl.coffee/6-828-2018-hw-cpu-alarm/)
