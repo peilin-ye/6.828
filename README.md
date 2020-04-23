@@ -20,4 +20,6 @@ Homework walkthroughs:
 
 [6.828/2018 Homework: Barriers](https://ypl.coffee/6-828-2018-homework-barriers/)
 
+[6.828/2018 Homework: Bigger files for xv6](https://ypl.coffee/6-828-hw-bigger-files-for-xv6/)
+
 Note: Future posts/walkthroughs and solutions of labs, exercises, homeworks will all base on the [Fall 2018 version](https://pdos.csail.mit.edu/6.828/2018/schedule.html).
