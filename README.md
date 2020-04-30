@@ -10,6 +10,8 @@ My lab walkthroughs:
 
 [6.828/2018 Lab 4: Preemptive Multitasking](https://ypl.coffee/6-828-2018-lab4/)
 
+[6.828/2018 Lab 5: File system, Spawn and Shell](https://ypl.coffee/6-828-2018-lab5/)
+
 Homework walkthroughs:
 
 [6.828/2018 Homework: xv6 CPU alarm](https://ypl.coffee/6-828-2018-hw-cpu-alarm/)
